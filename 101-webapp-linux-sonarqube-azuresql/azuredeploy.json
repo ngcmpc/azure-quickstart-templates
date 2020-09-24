@@ -9,6 +9,17 @@
                 "description": "Name of Azure Web App"
             }
         },
+        "sonarqubeImage": {
+            "type": "string",
+            "defaultValue": "sonarqube",
+            "allowedValues": [
+                "sonarqube",
+                "owasp/sonarqube"
+            ],
+            "metadata": {
+                "description": "The Sonarqube to use"
+            }
+        },
         "sonarqubeImageVersion": {
             "type": "string",
             "defaultValue": "lts",
@@ -204,7 +215,8 @@
             ],
             "properties": {
                 "siteConfig": {
-                    "linuxFxVersion": "[concat('DOCKER|sonarqube',':',parameters('sonarqubeImageVersion'))]"
+#                    "linuxFxVersion": "[concat('DOCKER|sonarqube',':',parameters('sonarqubeImageVersion'))]"
+                    "linuxFxVersion": "[concat('DOCKER|',parameters('sonarqubeImage'),':',parameters('sonarqubeImageVersion'))]"
                 },
                 "name": "[parameters('siteName')]",
                 "serverFarmId": "[variables('servicePlanName')]"
