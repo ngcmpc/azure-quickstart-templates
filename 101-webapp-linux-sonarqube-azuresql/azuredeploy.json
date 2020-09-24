@@ -215,7 +215,6 @@
             ],
             "properties": {
                 "siteConfig": {
-#                    "linuxFxVersion": "[concat('DOCKER|sonarqube',':',parameters('sonarqubeImageVersion'))]"
                     "linuxFxVersion": "[concat('DOCKER|',parameters('sonarqubeImage'),':',parameters('sonarqubeImageVersion'))]"
                 },
                 "name": "[parameters('siteName')]",
